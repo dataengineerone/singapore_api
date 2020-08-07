@@ -1,0 +1,36 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/04_user_guide/04_data_catalog.html
+
+
+raw_temp:
+  type: json.JSONDataSet
+  filepath: data/01_raw/raw_temp.json
+
+
+temp_plot:
+  type: matplotlib.MatplotlibWriter
+  filepath: data/08_reporting/temp.png
+
+
+station_temperature:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/station_temperature.csv
+
+
+downloaded_station_data:
+  type: PartitionedDataSet
+  path: data/01_raw/downloaded_station_data
+  dataset: pandas.CSVDataSet
+  filename_suffix: .csv
+
+
+already_downloaded_dates:
+  type: json.JSONDataSet
+  filepath: data/01_raw/already_downloaded_dates.json
+
+
+already_downloaded_dates!:
+  type: json.JSONDataSet
+  filepath: data/01_raw/already_downloaded_dates.json
